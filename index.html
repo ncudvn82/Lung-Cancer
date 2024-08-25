@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="headtitle">癌症資訊大補貼</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">歡迎來到癌症資訊大補貼</h1>
+    </header>
+
+    <nav>
+        <a href="#" id="homePage">首頁</a>
+        <a href="#" id="backToTop">回到頂部</a>
+        <a href="intro.html">簡介</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <div id="filterStatus"></div>
+            <div id="articles"></div>
+            <div id="pagination">
+                <button id="prevPage">上一頁</button>
+                <span id="currentPage"></span>
+                <button id="nextPage">下一頁</button>
+            </div>
+        </main>
+
+        <aside id="sidebar">
+        <div id="sidebarContent">
+            <section>
+                <h3>日期歸檔</h3>
+                <ul id="dateArchive"></ul>
+            </section>
+            <section>
+                <h3>標籤</h3>
+                <ul id="tagList"></ul>
+            </section>
+        </div>
+        <div id="stickyImageContainer">
+            <div id="stickyImage">
+                <a href="https://www.cancerfree.io/zh-tw/index" id="adLink" target="_blank">
+                    <img src="./ad_init.png" id="adImg" alt="Sticky Image">
+                </a>
+            </div>
+        </div>
+    </aside>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
