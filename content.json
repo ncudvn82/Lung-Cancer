@@ -490,9 +490,17 @@
             }
         ]
     },
-    "ad": {
+    "ad1": {
         "image": "./images/99.jpg",
         "content": "",
         "link": "https://www.cancerfree.io/zh-tw/index"
+    },
+    "ad2": {
+        "image": "",
+        "link": ""
+    },
+    "ad3": {
+        "image": "",
+        "link": ""
     }
 }
