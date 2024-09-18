@@ -21,8 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
             articles = data.documents.items || [];
             document.getElementById('title').textContent = data.hero.title;
             document.getElementById('headtitle').textContent = data.siteTitle;
-            document.getElementById("adLink").href = data.ad.link;
-            document.getElementById("adImg").src = data.ad.image;
+            //document.getElementById("adLink").href = data.ad1.link;
+            //document.getElementById("adImg").src = data.ad1.image;
+            //document.getElementById("adLink2").href = data.ad2.link;
+            //document.getElementById("adImg2").src = data.ad2.image;
+
+            createStickyImage(data.ad1, 'stickyImage');
+            createStickyImage(data.ad2, 'stickyImage2');
+            createAd3(data.ad3);
+
             document.documentElement.style.setProperty('--primary-color', data.color1);
             document.documentElement.style.setProperty('--secondary-color', data.color2);
             document.documentElement.style.setProperty('--text-color', data.color3);
@@ -39,6 +46,33 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error loading articles:', error));
 });
+
+function createStickyImage(adData, id) {
+    if (adData.image && adData.image !== "") {
+        const stickyImageContainer = document.getElementById('stickyImageContainer');
+        const stickyImageDiv = document.createElement('div');
+        stickyImageDiv.id = id;
+        stickyImageDiv.innerHTML = `
+            <a href="${adData.link}" id="${id}Link" target="_blank">
+                <img src="${adData.image}" id="${id}Img" alt="Sticky Image">
+            </a>
+        `;
+        stickyImageContainer.appendChild(stickyImageDiv);
+    }
+}
+
+function createAd3(adData) {
+    if (adData.image && adData.image !== "") {
+        const ad3Container = document.getElementById('ad3Container');
+        ad3Container.innerHTML = `
+            <div id="ad3">
+                <a href="${adData.link}" id="adLink3" target="_blank">
+                    <img src="${adData.image}" id="adImg3" alt="Sticky Image">
+                </a>
+            </div>
+        `;
+    }
+}
 
 document.getElementById('homePage').addEventListener('click', function(e) {
     e.preventDefault();
@@ -205,7 +239,7 @@ function adjustSidebarHeight() {
     const availableHeight = sidebar.offsetHeight;
     const imageHeight = stickyImageContainer.offsetHeight;
 
-    sidebarContent.style.maxHeight = `${availableHeight - imageHeight}px`;
+    //sidebarContent.style.maxHeight = `${availableHeight - imageHeight}px`;
 }
 
 window.addEventListener('load', adjustSidebarHeight);
