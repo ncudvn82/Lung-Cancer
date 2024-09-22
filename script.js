@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             createStickyImage(data.ad1, 'stickyImage');
             createStickyImage(data.ad2, 'stickyImage2');
             createAd3(data.ad3);
+            createTagCloud();
 
             document.documentElement.style.setProperty('--primary-color', data.color1);
             document.documentElement.style.setProperty('--secondary-color', data.color2);
@@ -46,6 +47,67 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error loading articles:', error));
 });
+
+function createTagCloud() {
+    const tagCloudContainer = document.createElement('div');
+    tagCloudContainer.id = 'tagCloud';
+    tagCloudContainer.className = 'bg-orange-300 p-4 rounded-lg shadow-md';
+
+    const tagCloudSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    tagCloudSvg.setAttribute("width", "400");
+    tagCloudSvg.setAttribute("height", "300");
+    tagCloudContainer.appendChild(tagCloudSvg);
+
+    // 假設您想將標籤雲放在側邊欄中
+    const sidebar = document.getElementById('stickyImageContainer');
+    sidebar.insertBefore(tagCloudContainer, sidebar.firstChild);
+
+    // 計算標籤頻率
+    const tagCounts = {};
+    articles.forEach(article => {
+        article.tags.forEach(tag => {
+            tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+    });
+
+    // 準備數據給 d3-cloud
+    const words = Object.keys(tagCounts).map(tag => ({
+        text: tag,
+        size: Math.max(12, Math.min(40, 12 + tagCounts[tag] * 3)) // 字體大小範圍：12px 到 40px
+    }));
+
+    // 使用 d3-cloud 生成文字雲
+    d3.layout.cloud()
+        .size([400, 300])
+        .words(words)
+        .padding(5)
+        .rotate(() => 0)
+        .font("Arial")
+        .fontSize(d => d.size)
+        .on("end", draw)
+        .start();
+
+    function draw(words) {
+        const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        d3.select(tagCloudSvg)
+            .append("g")
+            .attr("transform", "translate(200,150)")
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .style("font-size", d => `${d.size}px`)
+            .style("font-family", "Arial, sans-serif")
+            .style("font-weight", "bold")
+            .style("cursor", "pointer")
+            .style("fill", (d, i) => color(i))
+            .attr("text-anchor", "middle")
+            .attr("transform", d => `translate(${d.x},${d.y})`)
+            .text(d => d.text)
+            .on("click", (event, d) => filterArticles('tag', d.text));
+    }
+}
+
 
 function createStickyImage(adData, id) {
     if (adData.image && adData.image !== "") {
