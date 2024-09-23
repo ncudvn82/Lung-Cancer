@@ -52,15 +52,20 @@ function createTagCloud() {
     const tagCloudContainer = document.createElement('div');
     tagCloudContainer.id = 'tagCloud';
     tagCloudContainer.className = 'bg-orange-300 p-4 rounded-lg shadow-md';
+    tagCloudContainer.style.width = '100%';
 
     const tagCloudSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    tagCloudSvg.setAttribute("width", "400");
-    tagCloudSvg.setAttribute("height", "300");
+    tagCloudSvg.style.width = '100%';
+    tagCloudSvg.style.height = 'auto';
+    tagCloudSvg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     tagCloudContainer.appendChild(tagCloudSvg);
 
-    // 假設您想將標籤雲放在側邊欄中
     const sidebar = document.getElementById('stickyImageContainer');
     sidebar.insertBefore(tagCloudContainer, sidebar.firstChild);
+
+    const baseWidth = 400; // 基準寬度
+    const baseHeight = 300; // 基準高度
+    tagCloudSvg.setAttribute('viewBox', `0 0 ${baseWidth} ${baseHeight}`);
 
     // 計算標籤頻率
     const tagCounts = {};
@@ -70,29 +75,31 @@ function createTagCloud() {
         });
     });
 
-    // 準備數據給 d3-cloud
+    // 準備數據
     const words = Object.keys(tagCounts).map(tag => ({
         text: tag,
-        size: Math.max(12, Math.min(40, 12 + tagCounts[tag] * 3)) // 字體大小範圍：12px 到 40px
+        size: Math.max(12, Math.min(40, 12 + tagCounts[tag] * 3))
     }));
 
-    // 使用 d3-cloud 生成文字雲
+    // 創建雲佈局
     d3.layout.cloud()
-        .size([400, 300])
+        .size([baseWidth, baseHeight])
         .words(words)
         .padding(5)
         .rotate(() => 0)
         .font("Arial")
         .fontSize(d => d.size)
+        .spiral("archimedean")  // 使用阿基米德螺旋可能會有更好的分佈
         .on("end", draw)
         .start();
 
     function draw(words) {
         const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        d3.select(tagCloudSvg)
+        const cloud = d3.select(tagCloudSvg)
+            .attr("viewBox", `0 0 ${baseWidth} ${baseHeight}`)
             .append("g")
-            .attr("transform", "translate(200,150)")
+            .attr("transform", `translate(${baseWidth/2},${baseHeight/2})`)
             .selectAll("text")
             .data(words)
             .enter().append("text")
@@ -101,10 +108,44 @@ function createTagCloud() {
             .style("font-weight", "bold")
             .style("cursor", "pointer")
             .style("fill", (d, i) => color(i))
+            .style("cursor", "pointer")
             .attr("text-anchor", "middle")
             .attr("transform", d => `translate(${d.x},${d.y})`)
             .text(d => d.text)
             .on("click", (event, d) => filterArticles('tag', d.text));
+
+        function resizeCloud() {
+            const containerWidth = tagCloudContainer.clientWidth;
+            const containerHeight = containerWidth * (baseHeight / baseWidth);
+
+            // 計算縮放因子，但限制最小值和最大值
+            //const scaleFactor = Math.min(Math.max(containerWidth / baseWidth, 0.5), 1.5);
+            const scaleFactor = containerWidth / baseWidth;
+
+            // 更新 SVG 大小
+            tagCloudSvg.style.width = `${containerWidth}px`;
+            tagCloudSvg.style.height = `${containerHeight}px`;
+            tagCloudSvg.setAttribute("viewBox", `0 0 ${containerWidth} ${containerHeight}`)
+
+            // 更新字體大小和位置，設置最小和最大字體大小
+            /*alert(containerWidth)
+            alert(scaleFactor)
+            alert(containerHeight)
+            alert(baseHeight)*/
+            //cloud.style("font-size", d => `${Math.min(Math.max(d.size * scaleFactor, 10), 40)}px`)
+            cloud.style("font-size", d => `${d.size * scaleFactor}px`)
+                .attr("transform", d => `translate(${d.x * scaleFactor},${d.y * scaleFactor})`);
+
+            // 更新整個雲的位置，確保居中
+            d3.select(tagCloudSvg.querySelector('g'))
+                .attr("transform", `translate(${containerWidth/2},${containerHeight/2})`);
+        }
+
+        // 添加視窗大小改變事件監聽器
+        window.addEventListener('resize', resizeCloud);
+
+        // 初始調用一次以設置正確的大小
+        resizeCloud();
     }
 }
 
@@ -126,6 +167,7 @@ function createStickyImage(adData, id) {
 function createAd3(adData) {
     if (adData.image && adData.image !== "") {
         const ad3Container = document.getElementById('ad3Container');
+        ad3Container.removeAttribute("hidden")
         ad3Container.innerHTML = `
             <div id="ad3">
                 <a href="${adData.link}" id="adLink3" target="_blank">
