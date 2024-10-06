@@ -159,7 +159,7 @@ function createStickyImage(adData, id, div) {
         const stickyImageDiv = document.createElement('div');
         stickyImageDiv.id = id;
         stickyImageDiv.innerHTML = `
-            <a href="../${adData.link}" id="${id}Link" target="_blank">
+            <a href="${adData.link}" id="${id}Link" target="_blank">
                 <img src="../${adData.image}" id="${id}Img" alt="Sticky Image">
             </a>
         `;
@@ -173,7 +173,7 @@ function createAd3(adData) {
         ad3Container.removeAttribute("hidden")
         ad3Container.innerHTML = `
             <div id="ad3">
-                <a href="../${adData.link}" id="adLink3" target="_blank">
+                <a href="${adData.link}" id="adLink3" target="_blank">
                     <img src="../${adData.image}" id="adImg3" alt="Sticky Image">
                 </a>
             </div>
