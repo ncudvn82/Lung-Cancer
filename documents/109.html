@@ -2,24 +2,30 @@
 <html>
   <head>
     <title>Cisplatin Mylan介紹</title>
+    <meta charset="utf-8">
+    <link href="../styles.css" rel="stylesheet">
+    <link href="./styles2.css" rel="stylesheet">
   </head>
   <body>
-    <link href="./styles2.css" rel="stylesheet">
-    <meta charset="utf-8">
+    <nav>
+      <div class="functions">
+        <a href="../index.html" id="homePage">首頁</a>
+        <a href="#" id="backToTop">回到頂部</a>
+      </div>
+    </nav>
     <div class="container" id="title">
-      <p id="date">2024/08/07
-</p>
+      <p id="date">2024/08/07</p>
       <h1 id="title_name">Cisplatin Mylan介紹</h1>
       <h2 id="auther">Cancerfree</h2>
     </div>
-    <div class="container" id="content">
-      <h1><h1>Cisplatin Mylan介紹</h1></h1>
-
-      <p><p>Cisplatin Mylan是一種含有活性成分順鉑的藥物，屬於鉑類抗腫瘤藥物。它廣泛應用於治療多種癌症，包括卵巢癌、肺癌、膀胱癌等。</p></p>
-
-      <h3><h3>Cisplatin Mylan的特點</h3></h3>
-
-      <ol><ol>
+    <div id="contents">
+      <div id="stickyImageContainer"></div>
+      <main>
+        <div hidden="" id="ad3Container"></div>
+        <div id="content"><h1>Cisplatin Mylan介紹</h1>
+<p>Cisplatin Mylan是一種含有活性成分順鉑的藥物，屬於鉑類抗腫瘤藥物。它廣泛應用於治療多種癌症，包括卵巢癌、肺癌、膀胱癌等。</p>
+<h3>Cisplatin Mylan的特點</h3>
+<ol>
 <li>
 <p><strong>成分</strong>：Cisplatin Mylan主要成分為順鉑，通過幹擾癌細胞的DNA複製和修復來抑制癌細胞的生長和擴散。</p>
 </li>
@@ -29,11 +35,9 @@
 <li>
 <p><strong>劑型</strong>：Cisplatin Mylan通常以靜脈注射的形式給藥，劑型清晰易於使用。</p>
 </li>
-</ol></ol>
-
-      <h3><h3>使用Cisplatin Mylan的注意事項</h3></h3>
-
-      <ol><ol>
+</ol>
+<h3>使用Cisplatin Mylan的注意事項</h3>
+<ol>
 <li>
 <p><strong>劑量</strong>：使用Cisplatin Mylan時應根據醫生的建議確定適當的劑量，不可自行調整。</p>
 </li>
@@ -43,9 +47,25 @@
 <li>
 <p><strong>監測</strong>：在接受Cisplatin Mylan治療期間，患者需要定期進行血液檢測和其他相關檢查，以確保藥物的療效和安全性。</p>
 </li>
-</ol></ol>
-
-      <p><p>總的來說，Cisplatin Mylan作為一種有效的抗腫瘤藥物，在治療多種癌症方面具有重要作用。患者在使用期間應密切關注身體狀況，並遵循醫生的建議進行治療。</p></p>
+</ol>
+<p>總的來說，Cisplatin Mylan作為一種有效的抗腫瘤藥物，在治療多種癌症方面具有重要作用。患者在使用期間應密切關注身體狀況，並遵循醫生的建議進行治療。</p></div>
+      </main>
+      <aside id="sidebar">
+        <div id="sidebarContent">
+          <section>
+            <h3>日期歸檔</h3>
+            <ul id="dateArchive"></ul>
+          </section>
+          <section>
+            <h3>標籤</h3>
+            <ul id="tagList"></ul>
+          </section>
+        </div>
+        <div hidden="" id="stickyImageContainer2"></div>
+      </aside>
     </div>
+    <script src="script_articles.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
   </body>
 </html>
