@@ -160,7 +160,7 @@ function createStickyImage(adData, id, div) {
         stickyImageDiv.id = id;
         stickyImageDiv.innerHTML = `
             <a href="${adData.link}" id="${id}Link" target="_blank">
-                <img src="../${adData.image}" id="${id}Img" alt="Sticky Image">
+                <img src="${adData.image}" id="${id}Img" alt="Sticky Image">
             </a>
         `;
         stickyImageContainer.appendChild(stickyImageDiv);
@@ -174,7 +174,7 @@ function createAd3(adData) {
         ad3Container.innerHTML = `
             <div id="ad3">
                 <a href="${adData.link}" id="adLink3" target="_blank">
-                    <img src="../${adData.image}" id="adImg3" alt="Sticky Image">
+                    <img src="${adData.image}" id="adImg3" alt="Sticky Image">
                 </a>
             </div>
         `;
