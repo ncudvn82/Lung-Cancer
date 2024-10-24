@@ -566,10 +566,12 @@
     },
     "ad2": {
         "image": "./images/工作區域 2.jpg",
-        "link": "https://www.cancerfree.io/"
+        "content": "替身醫療",
+        "link": "https://info.cancerfree.io/"
     },
     "ad3": {
         "image": "./images/癌症論壇主視覺1200x100-1.png",
+        "content": "癌症新曙光",
         "link": "https://www.accupass.com/event/2409190641091118413560"
     }
 }
