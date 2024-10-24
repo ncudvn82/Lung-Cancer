@@ -5,6 +5,54 @@ let currentFilter = null;
 let currentFilterType = null;
 let currentFilterValue = null;
 
+// 網站URL和中文名稱對應表
+const websiteInfo = {
+    "Breast Cancer": {
+        url: "https://breastcancer.tech/",
+        chineseName: "乳癌"
+    },
+    "Brain tumor": {
+        url: "https://braintumor.biz/",
+        chineseName: "腦癌"
+    },
+    "Lung Cancer": {
+        url: "https://nsclc.net/index.html",
+        chineseName: "肺癌"
+    },
+    "Ovarian Cancer": {
+        url: "https://fightoc.org/",
+        chineseName: "卵巢癌"
+    },
+    "Esophageal Cancer": {
+        url: "https://fightec.info/",
+        chineseName: "食道癌"
+    },
+    "Pancreatic Cancer": {
+        url: "https://fightpdac.org/",
+        chineseName: "胰臟癌"
+    },
+    "Oral Cancer": {
+        url: "https://fightoscc.org/",
+        chineseName: "口腔癌"
+    },
+    "Prostate Cancer": {
+        url: "https://fightpc.org/",
+        chineseName: "前列腺(攝護腺)癌"
+    },
+    "Colorectal Cancer": {
+        url: "https://fightcrc.info/",
+        chineseName: "結腸、直腸和肛門癌"
+    },
+    "Liver Cancer": {
+        url: "https://fighthcc.org/",
+        chineseName: "肝和肝內膽管癌"
+    },
+    "Gastric Cancer": {
+        url: "https://fightgc.org/",
+        chineseName: "胃癌"
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const tag = urlParams.get('tag');
@@ -34,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
             createTagCloud('tagCloud', 'stickyImageContainer');
             createTagCloud('tagCloud2', 'stickyImageContainer2');
 
+            addRelatedWebsites(data.siteTitle);
+
             document.documentElement.style.setProperty('--primary-color', data.color1);
             document.documentElement.style.setProperty('--secondary-color', data.color2);
             document.documentElement.style.setProperty('--text-color', data.color3);
@@ -50,6 +100,58 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error loading articles:', error));
 });
+
+// 添加相關網站連結的函數
+function addRelatedWebsites(currentSite) {
+    // 獲取當前頁面的文章編號
+    const pathArray = window.location.pathname.split('/');
+    const filename = pathArray[pathArray.length - 1];
+    const articleNo = parseInt(filename.replace('.html', ''));
+
+    // 在文章列表中找到當前文章
+    const currentArticle = articles.find(article => article.no === articleNo);
+
+    if (currentArticle && currentArticle.website) {
+        // 過濾掉當前網站
+        const otherWebsites = currentArticle.website.filter(site => site !== currentSite);
+
+        if (otherWebsites.length > 0) {
+            const contentDiv = document.getElementById('content');
+
+            // 創建分隔線
+            const hr = document.createElement('hr');
+            hr.style.margin = '20px 0';
+            contentDiv.appendChild(hr);
+
+            // 添加標題
+            const title = document.createElement('p');
+            title.textContent = '此藥物也在用在以下癌症';
+            title.style.marginBottom = '10px';
+            contentDiv.appendChild(title);
+
+            // 創建連結容器
+            const linkContainer = document.createElement('div');
+            linkContainer.style.display = 'flex';
+            linkContainer.style.gap = '10px';
+            linkContainer.style.flexWrap = 'wrap';
+
+            // 添加各個網站連結
+            otherWebsites.forEach(site => {
+                if (websiteInfo[site]) {
+                    const link = document.createElement('a');
+                    link.href = websiteInfo[site].url;
+                    link.textContent = websiteInfo[site].chineseName; // 使用中文名稱
+                    link.style.color = '#0066cc';
+                    link.style.textDecoration = 'none';
+                    link.target = '_blank';
+                    linkContainer.appendChild(link);
+                }
+            });
+
+            contentDiv.appendChild(linkContainer);
+        }
+    }
+}
 
 function createTagCloud(id, div) {
     const tagCloudContainer = document.createElement('div');
