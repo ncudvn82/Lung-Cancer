@@ -17,6 +17,104 @@
         "title": "Documents",
         "items": [
             {
+                "titles": "福特喜膠囊 FLACIL CAPSULES介紹",
+                "author": "Cancerfree",
+                "no": 2087,
+                "date": "2024/10/28",
+                "tags": [
+                    "福特喜膠囊",
+                    "FLACIL CAPSULES",
+                    "抗生素",
+                    "細菌感染",
+                    "病毒感染",
+                    "真菌感染",
+                    "寄生蟲感染"
+                ],
+                "website": [
+                    "Lung Cancer",
+                    "Breast Cancer",
+                    "Gastric Cancer",
+                    "Esophageal Cancer",
+                    "Colorectal Cancer",
+                    "Pancreatic Cancer",
+                    "Ovarian Cancer",
+                    "Liver Cancer"
+                ]
+            },
+            {
+                "titles": "鉑力定注射劑１０公絲對於癌症治療的全面介紹",
+                "author": "Cancerfree",
+                "no": 2051,
+                "date": "2024/11/17 23:36:40",
+                "tags": [
+                    "化療",
+                    "癌症治療",
+                    "鉑力定注射劑１０公絲",
+                    "CISPLATIN-TEVA INJECTION 10MG",
+                    "癌症藥物介紹",
+                    "轉移性睪丸瘤",
+                    "卵巢瘤",
+                    "膀胱瘤",
+                    "前列腺骨",
+                    "軟組織瘤"
+                ],
+                "website": [
+                    "Gastric Cancer",
+                    "Liver Cancer",
+                    "Lung Cancer",
+                    "Breast Cancer",
+                    "Esophageal Cancer"
+                ]
+            },
+            {
+                "titles": "克莫抗癌注射劑 0.5 毫克/毫升 (Kemoplat Injection)應用於治療肺癌、乳癌、食道癌、胃癌、肝癌的全面教程",
+                "author": "Cancerfree",
+                "no": 2050,
+                "date": "2024/11/17 23:36:17",
+                "tags": [
+                    "胃癌",
+                    "抗癌藥物",
+                    "癌症治療",
+                    "繁體中文",
+                    "克莫抗癌注射劑",
+                    "肺癌",
+                    "肝癌",
+                    "乳癌",
+                    "食道癌",
+                    "癌症藥物介紹",
+                    "藥物教程"
+                ],
+                "website": [
+                    "Gastric Cancer",
+                    "Liver Cancer",
+                    "Lung Cancer",
+                    "Breast Cancer",
+                    "Esophageal Cancer"
+                ]
+            },
+            {
+                "titles": "溫諾平20毫克軟膠囊(NAVELBINE 20MG， SOFT CAPSULE)：肺癌、乳癌的專用藥物介紹",
+                "author": "Cancerfree",
+                "no": 2046,
+                "date": "2024/11/11 12:29:43",
+                "tags": [
+                    "肺癌",
+                    "非小細胞肺癌",
+                    "乳癌",
+                    "癌症藥物介紹",
+                    "轉移性乳癌",
+                    "VINORELBINE TARTRATE",
+                    "友華生技醫藥股份有限公司",
+                    "NAVELBINE 20MG",
+                    "Soft Capsule",
+                    "繁體中文藥物介紹"
+                ],
+                "website": [
+                    "Lung Cancer",
+                    "Breast Cancer"
+                ]
+            },
+            {
                 "titles": "分期肺癌: 詳細介紹和理解",
                 "author": "Cancerfree",
                 "no": 308,
@@ -42,6 +140,9 @@
                     "INJECTION",
                     "DBL",
                     "CARBOPLATIN"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -53,6 +154,9 @@
                     "文章",
                     "產品",
                     "CYTOXAN TABLETS"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -65,6 +169,9 @@
                     "產品",
                     "Zycel",
                     "Celecoxib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -77,6 +184,9 @@
                     "產品",
                     "Zycel",
                     "Celecoxib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -88,6 +198,9 @@
                     "文章",
                     "產品",
                     "Xi-good"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -99,6 +212,9 @@
                     "文章",
                     "產品",
                     "UFUR"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -110,6 +226,9 @@
                     "文章",
                     "產品",
                     "UFT"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -121,6 +240,9 @@
                     "文章",
                     "產品",
                     "TS-1"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -133,6 +255,9 @@
                     "產品",
                     "INJECTION",
                     "TEGACIN"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -144,6 +269,9 @@
                     "文章",
                     "產品",
                     "TEDOFURYL"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -155,6 +283,9 @@
                     "文章",
                     "產品",
                     "TEDOFURYL"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -166,6 +297,9 @@
                     "文章",
                     "產品",
                     "Sincoxib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -177,6 +311,9 @@
                     "文章",
                     "產品",
                     "Selexib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -188,6 +325,9 @@
                     "文章",
                     "產品",
                     "Seconbrex"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -199,6 +339,9 @@
                     "文章",
                     "產品",
                     "Seconbrex"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -210,6 +353,9 @@
                     "文章",
                     "產品",
                     "Relecox膠囊Y.C."
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -222,6 +368,9 @@
                     "產品",
                     "INJECTION",
                     "Kemoplat"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -233,6 +382,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -244,6 +396,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -255,6 +410,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -266,6 +424,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -277,6 +438,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -288,6 +452,9 @@
                     "文章",
                     "產品",
                     "Golfer"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -299,6 +466,9 @@
                     "文章",
                     "產品",
                     "FUTRAFUL"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -310,6 +480,9 @@
                     "文章",
                     "產品",
                     "Furil膠囊LOTUS"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -321,6 +494,9 @@
                     "文章",
                     "產品",
                     "ECOPAIN"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -332,6 +508,9 @@
                     "文章",
                     "產品",
                     "ECOPAIN"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -344,6 +523,9 @@
                     "產品",
                     "Cisplatin",
                     "Mylan"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -357,6 +539,9 @@
                     "INJECTION",
                     "Cisplatin",
                     "DBL"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -369,6 +554,9 @@
                     "產品",
                     "Celecoxib",
                     "Celofen"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -380,6 +568,9 @@
                     "文章",
                     "產品",
                     "celexib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -391,6 +582,9 @@
                     "文章",
                     "產品",
                     "TBC"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -402,6 +596,9 @@
                     "文章",
                     "產品",
                     "Celecoxib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -413,6 +610,9 @@
                     "文章",
                     "產品",
                     "Sandoz"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -424,6 +624,9 @@
                     "文章",
                     "產品",
                     "Celecon"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -435,6 +638,9 @@
                     "文章",
                     "產品",
                     "Celecolen"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -446,6 +652,9 @@
                     "文章",
                     "產品",
                     "Celebrex"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -457,6 +666,9 @@
                     "文章",
                     "產品",
                     "Celebrex"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -468,6 +680,9 @@
                     "文章",
                     "產品",
                     "Cecoxii"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -479,6 +694,9 @@
                     "文章",
                     "產品",
                     "Cecolex"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -490,6 +708,9 @@
                     "文章",
                     "產品",
                     "Alecensa"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -501,6 +722,9 @@
                     "文章",
                     "藥品",
                     "Tegafur"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -512,6 +736,9 @@
                     "文章",
                     "藥品",
                     "Cisplatin"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -523,6 +750,9 @@
                     "文章",
                     "藥品",
                     "Celecoxib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -534,6 +764,9 @@
                     "文章",
                     "藥品",
                     "Alectinib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -545,6 +778,9 @@
                     "文章",
                     "藥品",
                     "Afatinib"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             },
             {
@@ -555,6 +791,9 @@
                 "tags": [
                     "文章",
                     "癌症介紹"
+                ],
+                "website": [
+                    "Lung Cancer"
                 ]
             }
         ]
