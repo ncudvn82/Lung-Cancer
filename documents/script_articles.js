@@ -288,6 +288,11 @@ function filterByTagAndRedirect(tag) {
     window.location.href = `${indexPath}?tag=${encodeURIComponent(tag)}`;
 }
 
+function filterByDateAndRedirect(date) {
+    const indexPath = '../index.html';
+    window.location.href = `${indexPath}?date=${encodeURIComponent(date)}`;
+}
+
 function populateSidebar() {
     const dateArchive = document.getElementById('dateArchive');
     const tagList = document.getElementById('tagList');
@@ -303,7 +308,7 @@ function populateSidebar() {
     dates.forEach(date => {
         const li = document.createElement('li');
         li.textContent = date;
-        li.addEventListener('click', () => filterArticles('date', date));
+        li.addEventListener('click', () => filterByDateAndRedirect(date));
         dateArchive.appendChild(li);
     });
 

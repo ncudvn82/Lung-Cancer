@@ -8,10 +8,16 @@ let currentFilterValue = null;
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const tag = urlParams.get('tag');
+    const date = urlParams.get('date');
 
     if (tag) {
         currentFilterType = 'tag';
         currentFilterValue = tag;
+    }
+
+    if (date) {
+        currentFilterType = 'date';
+        currentFilterValue = date;
     }
 
     // 從 JSON 文件加載文章元數據
@@ -41,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.style.setProperty('--accent-color', data.color5);
             if (tag) {
                 filterArticles('tag', tag);
-            } else {
+            } else if (date) {
+                filterArticles('date', date);
+            }else {
                 displayArticles(currentPage);
             }
             updatePagination();
