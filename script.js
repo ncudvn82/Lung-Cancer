@@ -8,16 +8,10 @@ let currentFilterValue = null;
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const tag = urlParams.get('tag');
-    const date = urlParams.get('date');
 
     if (tag) {
         currentFilterType = 'tag';
         currentFilterValue = tag;
-    }
-
-    if (date) {
-        currentFilterType = 'date';
-        currentFilterValue = date;
     }
 
     // 從 JSON 文件加載文章元數據
@@ -47,9 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.style.setProperty('--accent-color', data.color5);
             if (tag) {
                 filterArticles('tag', tag);
-            } else if (date) {
-                filterArticles('date', date);
-            }else {
+            } else {
                 displayArticles(currentPage);
             }
             updatePagination();
@@ -363,3 +355,31 @@ function adjustSidebarHeight() {
 
 window.addEventListener('load', adjustSidebarHeight);
 window.addEventListener('resize', adjustSidebarHeight);
+
+document.addEventListener('click', (event) =>{ 
+    const anchor = event.target.closest('a')
+    if (anchor){
+        event.preventDefault();
+        console.log('detect_click\n');
+        console.log(anchor.href);
+        fetch('https://2d0f-104-199-172-31.ngrok-free.app/track_url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: anchor.href })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Fetch error:', error)
+        })
+        .finally(() => {
+            window.open(anchor.href, '_blank'); // Navigate after tracking
+        });
+    }
+});

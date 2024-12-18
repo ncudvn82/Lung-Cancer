@@ -288,11 +288,6 @@ function filterByTagAndRedirect(tag) {
     window.location.href = `${indexPath}?tag=${encodeURIComponent(tag)}`;
 }
 
-function filterByDateAndRedirect(date) {
-    const indexPath = '../index.html';
-    window.location.href = `${indexPath}?date=${encodeURIComponent(date)}`;
-}
-
 function populateSidebar() {
     const dateArchive = document.getElementById('dateArchive');
     const tagList = document.getElementById('tagList');
@@ -308,7 +303,7 @@ function populateSidebar() {
     dates.forEach(date => {
         const li = document.createElement('li');
         li.textContent = date;
-        li.addEventListener('click', () => filterByDateAndRedirect(date));
+        li.addEventListener('click', () => filterArticles('date', date));
         dateArchive.appendChild(li);
     });
 
@@ -387,3 +382,31 @@ function adjustSidebarHeight() {
 
 window.addEventListener('load', adjustSidebarHeight);
 window.addEventListener('resize', adjustSidebarHeight);
+
+document.addEventListener('click', (event) =>{ 
+    const anchor = event.target.closest('a')
+    if (anchor){
+        event.preventDefault();
+        console.log('detect_click\n');
+        console.log(anchor.href);
+        fetch('https://2d0f-104-199-172-31.ngrok-free.app/track_url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: anchor.href })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Fetch error:', error)
+        })
+        .finally(() => {
+            window.open(anchor.href, '_blank'); // Navigate after tracking
+        });
+    }
+});
