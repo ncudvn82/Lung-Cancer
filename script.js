@@ -391,7 +391,9 @@ async function translatePage() {
     console.log(userLang)
     console.log(targetLang)
     for (let el of elements) {
-        const originalText = el.textContent;
+        const originalText = el.textContent.trim(); // Trim to remove unnecessary spaces
+        if (!originalText) continue; // Skip empty text
+
         try {
             const res = await fetch("https://libretranslate.com/translate", {
                 method: "POST",
@@ -400,10 +402,17 @@ async function translatePage() {
                 },
                 body: JSON.stringify({
                     q: originalText,
-                    source: "auto", // Original language (e.g., Chinese)
+                    source: "auto", // Use "zh" instead of "zh-TW" (check API docs for supported codes)
                     target: targetLang
                 })
             });
+
+            if (!res.ok) {
+                const errorDetails = await res.text();
+                console.error(`API Error (${res.status}): ${errorDetails}`);
+                continue;
+            }
+
             const data = await res.json();
             el.textContent = data.translatedText || originalText; // Update text or keep original
         } catch (error) {
@@ -413,3 +422,15 @@ async function translatePage() {
 }
 
 document.addEventListener("DOMContentLoaded", translatePage);
+
+fetch("https://libretranslate.com/translate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        q: "你好世界",
+        source: "zh",
+        target: "en"
+    })
+}).then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
