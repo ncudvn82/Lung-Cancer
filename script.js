@@ -400,7 +400,7 @@ async function translatePage() {
                 },
                 body: JSON.stringify({
                     q: originalText,
-                    source: zh-TW, // Original language (e.g., Chinese)
+                    source: "auto", // Original language (e.g., Chinese)
                     target: targetLang
                 })
             });
