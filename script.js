@@ -402,6 +402,8 @@ async function translatePage() {
                 },
                 body: JSON.stringify({
                     q: originalText,
+                    source: "auto",
+                    target: targetLang
                 })
             });
 
@@ -420,15 +422,3 @@ async function translatePage() {
 }
 
 document.addEventListener("DOMContentLoaded", translatePage);
-
-fetch("https://libretranslate.com/translate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        q: "你好世界",
-        source: "zh",
-        target: "en"
-    })
-}).then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
