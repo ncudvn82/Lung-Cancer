@@ -395,15 +395,13 @@ async function translatePage() {
         if (!originalText) continue; // Skip empty text
 
         try {
-            const res = await fetch("https://libretranslate.com/translate", {
+            const res = await fetch("https://065c-104-199-172-31.ngrok-free.app/translate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     q: originalText,
-                    source: "auto", // Use "zh" instead of "zh-TW" (check API docs for supported codes)
-                    target: targetLang
                 })
             });
 
