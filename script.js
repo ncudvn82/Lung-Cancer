@@ -400,6 +400,7 @@ async function translatePage() {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                mode: "cors", // Explicitly enable CORS
                 body: JSON.stringify({
                     q: originalText,
                     source: "auto",
