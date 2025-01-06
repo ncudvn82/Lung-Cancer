@@ -181,7 +181,12 @@ function createTagCloud(id, div) {
     });
 
     // 準備數據
-    const words = Object.keys(tagCounts).map(tag => ({
+    const filter = [/SEO/i, /.*癌症.*/, /.*治療.*/, /.*醫學/, /醫藥/, /.*癌/];
+
+    // 準備數據
+    const words = Object.keys(tagCounts)
+        .filter(tag => !filter.some(pattern => pattern.test(tag)))
+        .map(tag => ({
         text: tag,
         size: Math.max(12, Math.min(40, 12 + tagCounts[tag] * 3))
     }));

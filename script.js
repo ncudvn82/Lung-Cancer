@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('content.json')
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             articles = data.documents.items || [];
             document.getElementById('title').textContent = data.hero.title;
             document.getElementById('headtitle').textContent = data.siteTitle;
@@ -78,8 +79,12 @@ function createTagCloud(id, div) {
         });
     });
 
+    const filter = [/SEO/i, /.*癌症.*/, /.*治療.*/, /.*醫學/, /醫藥/, /.*癌/];
+
     // 準備數據
-    const words = Object.keys(tagCounts).map(tag => ({
+    const words = Object.keys(tagCounts)
+        .filter(tag => !filter.some(pattern => pattern.test(tag)))
+        .map(tag => ({
         text: tag,
         size: Math.max(12, Math.min(40, 12 + tagCounts[tag] * 3))
     }));
@@ -220,7 +225,7 @@ function displayArticles(page) {
             articleElement.innerHTML = `
                 <h2>${article.titles}</h2>
                 <div class="article-meta">
-                    作者: ${article.author} | 日期: ${article.date} | 標籤: ${article.tags.join(', ')}
+                    日期: ${article.date} | 標籤: ${article.tags.join(', ')}
                 </div>
             `;
             articleContainer.appendChild(articleElement);
